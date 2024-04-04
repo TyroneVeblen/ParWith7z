@@ -17,37 +17,47 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
-    QLineEdit, QMainWindow, QMenu, QMenuBar,
-    QProgressBar, QPushButton, QSizePolicy, QSpacerItem,
-    QStatusBar, QTextBrowser, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QMainWindow, QMenu,
+    QMenuBar, QProgressBar, QPushButton, QSizePolicy,
+    QSpacerItem, QStatusBar, QTextBrowser, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(480, 360)
+        MainWindow.resize(506, 382)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout_2 = QGridLayout(self.centralwidget)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(-1, 0, -1, 0)
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.pushButton_2 = QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
+        self.pushButton_2.setSizePolicy(sizePolicy)
+
+        self.gridLayout.addWidget(self.pushButton_2, 1, 1, 1, 1)
+
+        self.comboBox = QComboBox(self.centralwidget)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.gridLayout.addWidget(self.comboBox, 0, 0, 1, 1)
+
+        self.pushButton = QPushButton(self.centralwidget)
+        self.pushButton.setObjectName(u"pushButton")
         sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy)
 
-        self.horizontalLayout.addWidget(self.pushButton)
-
-        self.horizontalSpacer = QSpacerItem(30, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
+        self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
 
         self.customized_parameters_selector = QComboBox(self.centralwidget)
         self.customized_parameters_selector.addItem("")
@@ -59,32 +69,53 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.customized_parameters_selector.sizePolicy().hasHeightForWidth())
         self.customized_parameters_selector.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout.addWidget(self.customized_parameters_selector)
+        self.gridLayout.addWidget(self.customized_parameters_selector, 0, 3, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(30, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_2, 0, 5, 1, 1)
 
         self.customized_parameters_edit = QLineEdit(self.centralwidget)
         self.customized_parameters_edit.setObjectName(u"customized_parameters_edit")
         self.customized_parameters_edit.setFocusPolicy(Qt.ClickFocus)
         self.customized_parameters_edit.setClearButtonEnabled(False)
 
-        self.horizontalLayout.addWidget(self.customized_parameters_edit)
+        self.gridLayout.addWidget(self.customized_parameters_edit, 0, 4, 1, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(30, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
 
-        self.horizontalLayout.addItem(self.horizontalSpacer_2)
+        self.gridLayout.addWidget(self.label, 0, 2, 1, 1)
 
-        self.pushButton_2 = QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_2.setSizePolicy(sizePolicy)
+        self.label_2 = QLabel(self.centralwidget)
+        self.label_2.setObjectName(u"label_2")
 
-        self.horizontalLayout.addWidget(self.pushButton_2)
+        self.gridLayout.addWidget(self.label_2, 1, 2, 1, 1)
 
-        self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(2, 1)
-        self.horizontalLayout.setStretch(3, 2)
-        self.horizontalLayout.setStretch(5, 1)
+        self.comboBox_2 = QComboBox(self.centralwidget)
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.setObjectName(u"comboBox_2")
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.gridLayout.addWidget(self.comboBox_2, 1, 3, 1, 1)
+
+        self.lineEdit = QLineEdit(self.centralwidget)
+        self.lineEdit.setObjectName(u"lineEdit")
+
+        self.gridLayout.addWidget(self.lineEdit, 1, 4, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 1, 5, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 1, 0, 1, 1)
+
+        self.gridLayout.setColumnStretch(3, 2)
+        self.gridLayout.setColumnStretch(4, 3)
+
+        self.verticalLayout.addLayout(self.gridLayout)
 
         self.textBrowser = QTextBrowser(self.centralwidget)
         self.textBrowser.setObjectName(u"textBrowser")
@@ -117,12 +148,12 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
 
-        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.verticalLayout, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 480, 23))
+        self.menubar.setGeometry(QRect(0, 0, 506, 23))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu.setFocusPolicy(Qt.ClickFocus)
@@ -140,11 +171,19 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6\u5939", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u89e3\u538b", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u538b\u7f29", None))
+
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6", None))
         self.customized_parameters_selector.setItemText(0, QCoreApplication.translate("MainWindow", u"\u89e3\u538b\u5bc6\u7801", None))
         self.customized_parameters_selector.setItemText(1, QCoreApplication.translate("MainWindow", u"\u538b\u7f29\u7b49\u7ea7", None))
 
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6\u5939", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u89e3\u538b\u9009\u9879\uff1a", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"par2\u9009\u9879\uff1a", None))
+        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\u6821\u9a8c\u767e\u5206\u6bd4", None))
+        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"\u751f\u6210\u6587\u4ef6\u6570\u91cf", None))
+
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb", None))
         self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u9009\u9879", None))
     # retranslateUi
