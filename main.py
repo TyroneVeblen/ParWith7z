@@ -40,7 +40,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         """
         try:
             dialog = QtWidgets.QFileDialog(self)
-            dialog.setWindowTitle('请选择目录')
+            dialog.setWindowTitle('请选择路径')
             dialog.setOption(QtWidgets.QFileDialog.Option.DontUseNativeDialog, True)
             dialog.setOption(QtWidgets.QFileDialog.Option.ShowDirsOnly)
             dialog.setFileMode(QFileDialog.FileMode.Directory)
