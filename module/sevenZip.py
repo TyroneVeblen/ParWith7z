@@ -37,8 +37,9 @@ def compress(trigger: Signal, text_trigger: Signal, filedirs, config: dict):
         text_trigger.emit("正在压缩:{}".format(origin_files_location.split("/")[-1]))
         Popen_config = [software_location, command, file_name, origin_files_location, r"-mx=9", r"-mmt",
                         r"-aoa", r"-bsp1"]
-        if config["password"] is not None or config["password"] != "":
+        if config["password"] != "":
             Popen_config.append(r"-p{}".format(config['password']))
+        print(Popen_config)
         child = sub.Popen(
             Popen_config,
             shell=True, stdout=sub.PIPE, stderr=sub.STDOUT, universal_newlines=True, bufsize=1)
