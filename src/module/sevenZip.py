@@ -5,7 +5,7 @@ import psutil
 from PySide6.QtCore import Signal
 
 
-software_location = r"bin\\7z.exe"
+software_location = r"src\bin\7z.exe"
 command = "a"
 
 check = 1
