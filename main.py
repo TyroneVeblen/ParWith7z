@@ -5,7 +5,7 @@ from PySide6.QtCore import QThread
 from PySide6.QtWidgets import QMainWindow, QApplication, QFileDialog
 
 from module import sevenZip
-from ui.untitled import Ui_MainWindow
+from ui.MainWindow import Ui_MainWindow
 from module.sevenZip import *
 
 

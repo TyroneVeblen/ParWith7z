@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'untitled.ui'
+## Form generated from reading UI file 'MainWindow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.2
 ##
@@ -154,15 +154,15 @@ class Ui_MainWindow(object):
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 506, 23))
-        self.menu = QMenu(self.menubar)
-        self.menu.setObjectName(u"menu")
-        self.menu.setFocusPolicy(Qt.ClickFocus)
+        self.seeting = QMenu(self.menubar)
+        self.seeting.setObjectName(u"seeting")
+        self.seeting.setFocusPolicy(Qt.ClickFocus)
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-        self.menubar.addAction(self.menu.menuAction())
+        self.menubar.addAction(self.seeting.menuAction())
 
         self.retranslateUi(MainWindow)
 
@@ -185,6 +185,6 @@ class Ui_MainWindow(object):
         self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"\u751f\u6210\u6587\u4ef6\u6570\u91cf", None))
 
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb", None))
-        self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u9009\u9879", None))
+        self.seeting.setTitle(QCoreApplication.translate("MainWindow", u"\u9009\u9879", None))
     # retranslateUi
 
