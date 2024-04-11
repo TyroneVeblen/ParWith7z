@@ -3,8 +3,9 @@ from PySide6.QtCore import QThread
 from PySide6.QtWidgets import QMainWindow, QFileDialog
 
 from src.module import sevenZip
-from src.ui.MainWindow import Ui_MainWindow
+from src.ui.MainWindowUI import Ui_MainWindow
 from src.module.sevenZip import *
+from src.ui_handle.PathConfigurationOptionsHandle import PathConfigurationOptionsHandle
 
 
 class MyWindow(QMainWindow, Ui_MainWindow):
@@ -17,6 +18,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.work = None
         self.pushButton_2.clicked.connect(self.get_filenames)
         self.pushButton_3.clicked.connect(self.start)
+        self.action.triggered.connect(self.test)
+
+    def test(self):
+        self.dialog = PathConfigurationOptionsHandle()
+        self.dialog.show()
 
     def closeEvent(self, event):
         try:

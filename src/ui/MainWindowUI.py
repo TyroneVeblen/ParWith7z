@@ -1,32 +1,32 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow.ui'
+## Form generated from reading UI file 'MainWindowUI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-    QCursor, QFont, QFontDatabase, QGradient,
-    QIcon, QImage, QKeySequence, QLinearGradient,
-    QPainter, QPalette, QPixmap, QRadialGradient,
-    QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QMenu,
-    QMenuBar, QProgressBar, QPushButton, QSizePolicy,
-    QSpacerItem, QStatusBar, QTextBrowser, QVBoxLayout,
-    QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
+                            Qt)
+from PySide6.QtGui import (QAction)
+from PySide6.QtWidgets import (QComboBox, QGridLayout, QHBoxLayout,
+                               QLabel, QLineEdit, QMenu,
+                               QMenuBar, QProgressBar, QPushButton, QSizePolicy,
+                               QSpacerItem, QStatusBar, QTextBrowser, QVBoxLayout,
+                               QWidget)
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(506, 382)
+        self.action = QAction(MainWindow)
+        self.action.setObjectName(u"action")
+        self.action.setCheckable(False)
+        self.action.setChecked(False)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -144,9 +144,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.pushButton_3)
 
-
         self.verticalLayout.addLayout(self.horizontalLayout_2)
-
 
         self.gridLayout_2.addLayout(self.verticalLayout, 0, 0, 1, 1)
 
@@ -154,37 +152,45 @@ class Ui_MainWindow(object):
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 506, 23))
-        self.seeting = QMenu(self.menubar)
-        self.seeting.setObjectName(u"seeting")
-        self.seeting.setFocusPolicy(Qt.ClickFocus)
+        self.settings = QMenu(self.menubar)
+        self.settings.setObjectName(u"settings")
+        self.settings.setFocusPolicy(Qt.ClickFocus)
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-        self.menubar.addAction(self.seeting.menuAction())
+        self.menubar.addAction(self.settings.menuAction())
+        self.settings.addAction(self.action)
 
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.action.setText(QCoreApplication.translate("MainWindow", u"\u8def\u5f84\u914d\u7f6e", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6\u5939", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u89e3\u538b", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u538b\u7f29", None))
 
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6", None))
-        self.customized_parameters_selector.setItemText(0, QCoreApplication.translate("MainWindow", u"\u89e3\u538b\u5bc6\u7801", None))
-        self.customized_parameters_selector.setItemText(1, QCoreApplication.translate("MainWindow", u"\u538b\u7f29\u7b49\u7ea7", None))
+        self.customized_parameters_selector.setItemText(0, QCoreApplication.translate("MainWindow",
+                                                                                      u"\u89e3\u538b\u5bc6\u7801",
+                                                                                      None))
+        self.customized_parameters_selector.setItemText(1, QCoreApplication.translate("MainWindow",
+                                                                                      u"\u538b\u7f29\u7b49\u7ea7",
+                                                                                      None))
 
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u89e3\u538b\u9009\u9879\uff1a", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"par2\u9009\u9879\uff1a", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\u6821\u9a8c\u767e\u5206\u6bd4", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"\u751f\u6210\u6587\u4ef6\u6570\u91cf", None))
+        self.comboBox_2.setItemText(0,
+                                    QCoreApplication.translate("MainWindow", u"\u6821\u9a8c\u767e\u5206\u6bd4", None))
+        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"\u751f\u6210\u6587\u4ef6\u6570\u91cf",
+                                                                  None))
 
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb", None))
-        self.seeting.setTitle(QCoreApplication.translate("MainWindow", u"\u9009\u9879", None))
+        self.settings.setTitle(QCoreApplication.translate("MainWindow", u"\u9009\u9879", None))
     # retranslateUi
-

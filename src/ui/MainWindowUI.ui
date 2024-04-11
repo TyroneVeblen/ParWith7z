@@ -213,17 +213,29 @@
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="seeting">
+   <widget class="QMenu" name="settings">
     <property name="focusPolicy">
      <enum>Qt::ClickFocus</enum>
     </property>
     <property name="title">
      <string>选项</string>
     </property>
+    <addaction name="action"/>
    </widget>
-   <addaction name="seeting"/>
+   <addaction name="settings"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>路径配置</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
