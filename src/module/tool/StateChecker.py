@@ -1,31 +1,44 @@
-import threading
-
 from PySide6.QtCore import QThread, Signal
-from PySide6.QtWidgets import QWidget, QMessageBox
+
+from src.module.tool.TimeoutSetter import TimeoutSetter
 
 
 class StateChecker(QThread):
-    trigger = Signal(dict)
+    trigger = Signal(list)
 
     def __init__(self, check: dict):
         super().__init__()
         self.check = check
-        self.result = {"level": "none", "message": ""}
+        self.results = []
+        self.timeout = {"timeout": False}
+        TimeoutSetter(self.timeout, 3).start()
+
+    def check_pass(self):
+        pass_count = 0
+        for key, value in self.check.items():
+            if value == "not_test_yet":
+                self.results.append({"level": "timeout", "form": str(key)})
+            elif value == "pass":
+                pass_count += 1
+            else:
+                self.results.append({"level": str(value), "form": str(key)})
+        if pass_count == len(self.check):
+            self.results.append({"level": "success", "from": ""})
+        self.trigger.emit(self.results)
 
     def run(self):
+        done_count = 0
         while 1:
-            if self.check['7z'] != "not_test_yet" and self.check['par2'] != "not_test_yet":
-                print(self.check)
-                if self.check["7z"] == "pass" and self.check["par2"] == "pass":
-                    self.result["level"] = "success"
-                    break
+            if self.timeout["timeout"]:
+                print("进入超时？")
+                self.check_pass()
+                break
+            else:
+                if done_count != len(self.check):
+                    done_count = 0
+                    for key, value in self.check.items():
+                        if value != "not_test_yet":
+                            done_count += 1
                 else:
-                    if self.check["7z"] == "fail":
-                        self.result["level"] = "error"
-                        self.result["message"] = "7z文件验证失败"
-                        break
-                    elif self.check["par2"] == "fail":
-                        self.result["level"] = "error"
-                        self.result["message"] = "par2文件验证失败"
-                        break
-        self.trigger.emit(self.result)
+                    self.check_pass()
+                    break

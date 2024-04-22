@@ -2,9 +2,11 @@ from PySide6 import QtWidgets
 from PySide6.QtCore import QThread
 from PySide6.QtWidgets import QMainWindow, QFileDialog
 
+from src.config import config
 from src.module import sevenZip
-from src.ui.MainWindowUI import Ui_MainWindow
 from src.module.sevenZip import *
+from src.module.tool.ConfigReader import ConfigReader
+from src.ui.MainWindowUI import Ui_MainWindow
 from src.ui_handle.PathConfigurationOptionsHandle import PathConfigurationOptionsHandle
 
 
@@ -13,18 +15,22 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
+        self.dialog = None
         self.check = 1
         self.filedirs = ""
         self.work = None
+        self.config = None
         self.pushButton_2.clicked.connect(self.get_filenames)
         self.pushButton_3.clicked.connect(self.start)
         self.action.triggered.connect(self.test)
+        self.config_reader = ConfigReader()
 
     def test(self):
-        self.dialog = PathConfigurationOptionsHandle()
+        self.dialog = PathConfigurationOptionsHandle(self.config_reader)
         self.dialog.show()
 
     def closeEvent(self, event):
+        self.dialog.close()
         try:
             if self.pushButton_3.text() == "开始":
                 event.accept()

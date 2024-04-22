@@ -1,42 +1,33 @@
 import shlex
-import shutil
 import subprocess
 import threading
 
-from PySide6.QtWidgets import QWidget
-
 
 class BinFileChecker(threading.Thread):
-    def __init__(self, file_url: str, check: dict):
+    def __init__(self, file_url: str, type: str, command: str, check: dict, timeout: int):
         super().__init__()
-        self.file_url = file_url
-        self.command = None
-        self.type = None
+        self.file_url = file_url.replace("\\", "/")
+        self.command = command
+        self.type = type
         self.check = check
-
-    def get_command(self):
-        if "7z" in self.file_url.split("/")[-1]:
-            self.command = "-h"
-            self.type = "7z"
-        elif "par2" in self.file_url.split("/")[-1]:
-            self.command = "-V"
-            self.type = "par2"
+        self.timeout = timeout
 
     def run(self):
-        self.get_command()
-        complete_command = shlex.split(self.file_url + " " + self.command)
-        child = subprocess.Popen(complete_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                 universal_newlines=True, bufsize=1)
-        flag = 1
-        while child.poll() is None:
-            for line in child.stdout:
-                if self.type == "7z" and "Igor Pavlov" in line:
-                    self.check["7z"] = "pass"
-                    flag = 0
-                    break
-                elif self.type == "par2" and "par2cmdline-turbo" in line:
-                    self.check["par2"] = "pass"
-                    flag = 0
-                    break
-        if flag:
-            self.check[self.type] = "fail"
+        try:
+            complete_command = shlex.split(self.file_url + " " + self.command)
+        except Exception as e:
+            self.check[self.type] = "not_available"
+            return
+        try:
+            child = subprocess.Popen(complete_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                     shell=False, universal_newlines=True)
+            stdout, stderr = child.communicate()  # 等待子进程完成并获取输出
+            if "Igor Pavlov" in stdout:
+                self.check["7z"] = "pass"
+            elif "par2cmdline-turbo" in stdout:
+                self.check["par2"] = "pass"
+            else:
+                self.check[self.type] = "fail"
+        except Exception as e:
+            print("不可执行")
+            self.check[self.type] = "not_available"

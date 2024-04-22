@@ -8,16 +8,11 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, Qt)
+from PySide6.QtWidgets import (QGridLayout, QHBoxLayout,
+                               QLabel, QLineEdit, QPushButton, QSizePolicy,
+                               QSpacerItem, QVBoxLayout)
+
 
 class Ui_PathConfigurationOptionsUI(object):
     def setupUi(self, PathConfigurationOptionsUI):
@@ -32,7 +27,7 @@ class Ui_PathConfigurationOptionsUI(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.label = QLabel(PathConfigurationOptionsUI)
         self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label.setAlignment(Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
@@ -48,7 +43,7 @@ class Ui_PathConfigurationOptionsUI(object):
 
         self.label_2 = QLabel(PathConfigurationOptionsUI)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_2.setAlignment(Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
 
@@ -61,7 +56,6 @@ class Ui_PathConfigurationOptionsUI(object):
         self.select_par2_bin_file.setObjectName(u"select_par2_bin_file")
 
         self.gridLayout.addWidget(self.select_par2_bin_file, 1, 2, 1, 1)
-
 
         self.verticalLayout.addLayout(self.gridLayout)
 
@@ -81,7 +75,6 @@ class Ui_PathConfigurationOptionsUI(object):
 
         self.horizontalLayout.addWidget(self.cancel)
 
-
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.verticalLayout.setStretch(0, 5)
@@ -90,17 +83,23 @@ class Ui_PathConfigurationOptionsUI(object):
 
         self.retranslateUi(PathConfigurationOptionsUI)
 
-
         QMetaObject.connectSlotsByName(PathConfigurationOptionsUI)
+
     # setupUi
 
     def retranslateUi(self, PathConfigurationOptionsUI):
-        PathConfigurationOptionsUI.setWindowTitle(QCoreApplication.translate("PathConfigurationOptionsUI", u"\u53ef\u6267\u884c\u6587\u4ef6\u914d\u7f6e", None))
-        self.label.setText(QCoreApplication.translate("PathConfigurationOptionsUI", u" 7z\u53ef\u6267\u884c\u6587\u4ef6\u8def\u5f84:", None))
-        self.select_7z_bin_file.setText(QCoreApplication.translate("PathConfigurationOptionsUI", u"\u9009\u62e9\u8def\u5f84...", None))
-        self.label_2.setText(QCoreApplication.translate("PathConfigurationOptionsUI", u" par2\u53ef\u6267\u884c\u6587\u4ef6\u8def\u5f84:", None))
-        self.select_par2_bin_file.setText(QCoreApplication.translate("PathConfigurationOptionsUI", u"\u9009\u62e9\u8def\u5f84...", None))
+        PathConfigurationOptionsUI.setWindowTitle(
+            QCoreApplication.translate("PathConfigurationOptionsUI", u"\u53ef\u6267\u884c\u6587\u4ef6\u914d\u7f6e",
+                                       None))
+        self.label.setText(
+            QCoreApplication.translate("PathConfigurationOptionsUI", u" 7z\u53ef\u6267\u884c\u6587\u4ef6\u8def\u5f84:",
+                                       None))
+        self.select_7z_bin_file.setText(
+            QCoreApplication.translate("PathConfigurationOptionsUI", u"\u9009\u62e9\u8def\u5f84...", None))
+        self.label_2.setText(QCoreApplication.translate("PathConfigurationOptionsUI",
+                                                        u" par2\u53ef\u6267\u884c\u6587\u4ef6\u8def\u5f84:", None))
+        self.select_par2_bin_file.setText(
+            QCoreApplication.translate("PathConfigurationOptionsUI", u"\u9009\u62e9\u8def\u5f84...", None))
         self.save.setText(QCoreApplication.translate("PathConfigurationOptionsUI", u"\u4fdd\u5b58", None))
         self.cancel.setText(QCoreApplication.translate("PathConfigurationOptionsUI", u"\u53d6\u6d88", None))
     # retranslateUi
-

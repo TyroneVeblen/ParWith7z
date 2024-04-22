@@ -1,9 +1,8 @@
 import os
 import subprocess as sub
+
 import psutil
-
 from PySide6.QtCore import Signal
-
 
 software_location = r"src\bin\7z.exe"
 command = "a"
@@ -42,7 +41,7 @@ def compress(trigger: Signal, text_trigger: Signal, filedirs, config: dict):
         print(Popen_config)
         child = sub.Popen(
             Popen_config,
-            shell=True, stdout=sub.PIPE, stderr=sub.STDOUT, universal_newlines=True, bufsize=1)
+            shell=False, stdout=sub.PIPE, stderr=sub.STDOUT, universal_newlines=True, bufsize=1,creationflags=sub.CREATE_NO_WINDOW)
         pid = child.pid
         text_trigger.emit("当前正在压缩" + origin_files_location.split("/")[-1] + "\n")
         while child.poll() is None:
