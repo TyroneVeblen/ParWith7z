@@ -28,6 +28,6 @@ class BinFileChecker(threading.Thread):
                 self.check["par2"] = "pass"
             else:
                 self.check[self.type] = "fail"
+            child.terminate()
         except Exception as e:
-            print("不可执行")
             self.check[self.type] = "not_available"

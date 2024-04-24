@@ -1,3 +1,5 @@
+import gc
+
 from PySide6 import QtWidgets
 from PySide6.QtCore import QThread
 from PySide6.QtWidgets import QMainWindow, QFileDialog
@@ -26,12 +28,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.config_reader = ConfigReader()
 
     def test(self):
-        self.dialog = PathConfigurationOptionsHandle(self.config_reader)
+        self.dialog = PathConfigurationOptionsHandle()
         self.dialog.show()
 
     def closeEvent(self, event):
-        self.dialog.close()
         try:
+            self.dialog.close()
             if self.pushButton_3.text() == "开始":
                 event.accept()
             else:
@@ -67,6 +69,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                 self.textBrowser.clear()
                 for dir in self.filedirs:
                     self.textBrowser.append(dir + "\n")
+            dialog.deleteLater()
         except:
             print("error")
 
@@ -74,6 +77,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.progressBar.reset()
         self.progressBar.setRange(0, len(self.filedirs))
         if self.pushButton_3.text() == "开始":
+            self.textBrowser.clear()
             config = {"password": self.customized_parameters_edit.text()}
             self.work = progressThread(filedirs=self.filedirs, config=config)
             sevenZip.flag = 1

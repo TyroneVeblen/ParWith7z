@@ -30,7 +30,6 @@ class StateChecker(QThread):
         done_count = 0
         while 1:
             if self.timeout["timeout"]:
-                print("进入超时？")
                 self.check_pass()
                 break
             else:
