@@ -1,242 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-    <class>MainWindow</class>
-    <widget class="QMainWindow" name="MainWindow">
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>506</width>
-                <height>382</height>
-            </rect>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>506</width>
+    <height>382</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QGridLayout" name="gridLayout" columnstretch="1,2,1,4,2">
+        <item row="0" column="1">
+         <widget class="QPushButton" name="select_files">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>选择文件</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="select_folders">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>选择文件夹</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QComboBox" name="unzip_or_zip">
+          <item>
+           <property name="text">
+            <string>解压</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>压缩</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>压缩包密码：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>par2校验百分比:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="customized_parameters_edit">
+          <property name="focusPolicy">
+           <enum>Qt::ClickFocus</enum>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="4">
+         <widget class="QToolButton" name="config_for_7z">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>7z配置</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QToolButton" name="comfig_for_par2">
+          <property name="text">
+           <string>par2配置</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="textBrowser"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="topMargin">
+         <number>0</number>
         </property>
-        <property name="windowTitle">
-            <string>MainWindow</string>
-        </property>
-        <widget class="QWidget" name="centralwidget">
-            <layout class="QGridLayout" name="gridLayout_2">
-                <item row="0" column="0">
-                    <layout class="QVBoxLayout" name="verticalLayout">
-                        <item>
-                            <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,2,3,0">
-                                <item row="1" column="1">
-                                    <widget class="QPushButton" name="pushButton_2">
-                                        <property name="sizePolicy">
-                                            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <property name="text">
-                                            <string>选择文件夹</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item row="0" column="0">
-                                    <widget class="QComboBox" name="comboBox">
-                                        <item>
-                                            <property name="text">
-                                                <string>解压</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>压缩</string>
-                                            </property>
-                                        </item>
-                                    </widget>
-                                </item>
-                                <item row="0" column="1">
-                                    <widget class="QPushButton" name="pushButton">
-                                        <property name="sizePolicy">
-                                            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <property name="text">
-                                            <string>选择文件</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item row="0" column="3">
-                                    <widget class="QComboBox" name="customized_parameters_selector">
-                                        <property name="sizePolicy">
-                                            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <item>
-                                            <property name="text">
-                                                <string>解压密码</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>压缩等级</string>
-                                            </property>
-                                        </item>
-                                    </widget>
-                                </item>
-                                <item row="0" column="5">
-                                    <spacer name="horizontalSpacer_2">
-                                        <property name="orientation">
-                                            <enum>Qt::Horizontal</enum>
-                                        </property>
-                                        <property name="sizeHint" stdset="0">
-                                            <size>
-                                                <width>30</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                </item>
-                                <item row="0" column="4">
-                                    <widget class="QLineEdit" name="customized_parameters_edit">
-                                        <property name="focusPolicy">
-                                            <enum>Qt::ClickFocus</enum>
-                                        </property>
-                                        <property name="clearButtonEnabled">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item row="0" column="2">
-                                    <widget class="QLabel" name="label">
-                                        <property name="text">
-                                            <string>解压选项：</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item row="1" column="2">
-                                    <widget class="QLabel" name="label_2">
-                                        <property name="text">
-                                            <string>par2选项：</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item row="1" column="3">
-                                    <widget class="QComboBox" name="comboBox_2">
-                                        <item>
-                                            <property name="text">
-                                                <string>校验百分比</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>生成文件数量</string>
-                                            </property>
-                                        </item>
-                                    </widget>
-                                </item>
-                                <item row="1" column="4">
-                                    <widget class="QLineEdit" name="lineEdit"/>
-                                </item>
-                                <item row="1" column="5">
-                                    <spacer name="horizontalSpacer">
-                                        <property name="orientation">
-                                            <enum>Qt::Horizontal</enum>
-                                        </property>
-                                        <property name="sizeHint" stdset="0">
-                                            <size>
-                                                <width>40</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                </item>
-                                <item row="1" column="0">
-                                    <spacer name="horizontalSpacer_3">
-                                        <property name="orientation">
-                                            <enum>Qt::Horizontal</enum>
-                                        </property>
-                                        <property name="sizeHint" stdset="0">
-                                            <size>
-                                                <width>40</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                </item>
-                            </layout>
-                        </item>
-                        <item>
-                            <widget class="QTextBrowser" name="textBrowser"/>
-                        </item>
-                        <item>
-                            <layout class="QHBoxLayout" name="horizontalLayout_2">
-                                <property name="topMargin">
-                                    <number>0</number>
-                                </property>
-                                <item>
-                                    <widget class="QProgressBar" name="progressBar">
-                                        <property name="enabled">
-                                            <bool>true</bool>
-                                        </property>
-                                        <property name="sizePolicy">
-                                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <property name="value">
-                                            <number>0</number>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item>
-                                    <widget class="QPushButton" name="pushButton_3">
-                                        <property name="sizePolicy">
-                                            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <property name="text">
-                                            <string>开始</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                            </layout>
-                        </item>
-                    </layout>
-                </item>
-            </layout>
-        </widget>
-        <widget class="QMenuBar" name="menubar">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>506</width>
-                    <height>23</height>
-                </rect>
-            </property>
-            <widget class="QMenu" name="settings">
-                <property name="focusPolicy">
-                    <enum>Qt::ClickFocus</enum>
-                </property>
-                <property name="title">
-                    <string>选项</string>
-                </property>
-                <addaction name="action"/>
-            </widget>
-            <addaction name="settings"/>
-        </widget>
-        <widget class="QStatusBar" name="statusbar"/>
-        <action name="action">
-            <property name="checkable">
-                <bool>false</bool>
-            </property>
-            <property name="checked">
-                <bool>false</bool>
-            </property>
-            <property name="text">
-                <string>路径配置</string>
-            </property>
-        </action>
-    </widget>
-    <resources/>
-    <connections/>
+        <item>
+         <widget class="QProgressBar" name="progressBar">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="start_and_end">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>开始</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>506</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="settings">
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="title">
+     <string>选项</string>
+    </property>
+    <addaction name="action"/>
+   </widget>
+   <addaction name="settings"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>路径配置</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
 </ui>

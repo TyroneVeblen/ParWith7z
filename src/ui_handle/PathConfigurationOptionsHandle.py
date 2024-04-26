@@ -37,13 +37,9 @@ class PathConfigurationOptionsHandle(QWidget, Ui_PathConfigurationOptionsUI, Set
     def file_selector(self):
         for key, button in self.file_select_buttons.items():
             button.clicked.connect(
-                functools.partial(self.get_path, key)
+                functools.partial(PathSelector, self, self.file_path_line_edits[key])
             )
         pass
-
-    def get_path(self, key):
-        filename = QFileDialog.getOpenFileName(self, "选择文件")
-        self.file_path_line_edits[key].setText(filename)
 
     def message_call(self, results: list):
         self.settings_save_start = False

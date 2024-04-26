@@ -7,6 +7,7 @@ class PathSelector(QWidget):
         self.line_edit = line_edit
         print(line_edit)
         self.widget = widget
+        self.get_path()
 
     def get_path(self):
         try:

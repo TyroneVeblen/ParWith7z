@@ -22,25 +22,29 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.filedirs = ""
         self.work = None
         self.config = None
-        self.pushButton_2.clicked.connect(self.get_filenames)
-        self.pushButton_3.clicked.connect(self.start)
-        self.action.triggered.connect(self.test)
-        self.config_reader = ConfigReader()
+        self.select_folders.clicked.connect(self.get_filenames)
+        self.start_and_end.clicked.connect(self.start)
+        self.action.triggered.connect(self.open_bin_file_path_settings_page)
+        ConfigReader()
 
-    def test(self):
+    def open_bin_file_path_settings_page(self):
         self.dialog = PathConfigurationOptionsHandle()
         self.dialog.show()
 
     def closeEvent(self, event):
-        try:
+        if self.dialog is not None:
             self.dialog.close()
-            if self.pushButton_3.text() == "开始":
+            self.dialog.deleteLater()
+        try:
+            if self.start_and_end.text() == "开始":
                 event.accept()
+                self.deleteLater()
             else:
                 sevenZip.flag = 0
                 while sevenZip.child.poll() is None:
                     event.ignore()
                 event.accept()
+                self.deleteLater()
         except Exception as e:
             print(e)
             event.ignore()
@@ -67,8 +71,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             if dialog.exec() == QtWidgets.QDialog.DialogCode.Accepted:
                 self.filedirs = dialog.selectedFiles()
                 self.textBrowser.clear()
-                for dir in self.filedirs:
-                    self.textBrowser.append(dir + "\n")
+                for folder in self.filedirs:
+                    self.textBrowser.append(folder + "\n")
             dialog.deleteLater()
         except:
             print("error")
@@ -76,18 +80,18 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def start(self):
         self.progressBar.reset()
         self.progressBar.setRange(0, len(self.filedirs))
-        if self.pushButton_3.text() == "开始":
+        if self.start_and_end.text() == "开始":
             self.textBrowser.clear()
             config = {"password": self.customized_parameters_edit.text()}
             self.work = progressThread(filedirs=self.filedirs, config=config)
             sevenZip.flag = 1
-            self.pushButton_3.setText("停止")
+            self.start_and_end.setText("停止")
             self.work.start()
             self.work.trigger.connect(self.setValue)
             self.work.text_changed.connect(self.setText)
         else:
             sevenZip.flag = 0
-            self.pushButton_3.setText("开始")
+            self.start_and_end.setText("开始")
             self.work.finished.connect(self.finish)
             self.work = None
 
@@ -100,7 +104,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def setText(self, text):
         if text == "解压结束":
             self.progressBar.setValue(0)
-            self.pushButton_3.setText("开始")
+            self.start_and_end.setText("开始")
         self.textBrowser.append(text)
 
 
