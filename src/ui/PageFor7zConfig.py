@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'PageFor7zConfig.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.2
+## Created by: Qt User Interface Compiler version 6.6.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,14 +16,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
-    QGroupBox, QLabel, QLineEdit, QSizePolicy,
-    QWidget)
+    QGroupBox, QHBoxLayout, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QWidget)
 
 class Ui_PageFor7zConfig(object):
     def setupUi(self, PageFor7zConfig):
         if not PageFor7zConfig.objectName():
             PageFor7zConfig.setObjectName(u"PageFor7zConfig")
-        PageFor7zConfig.resize(296, 268)
+        PageFor7zConfig.resize(296, 331)
         self.gridLayout_3 = QGridLayout(PageFor7zConfig)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.groupBox = QGroupBox(PageFor7zConfig)
@@ -121,12 +121,12 @@ class Ui_PageFor7zConfig(object):
 
         self.gridLayout_2.addWidget(self.label_6, 1, 0, 1, 1)
 
-        self.dont_create_subfolder = QCheckBox(self.groupBox_2)
-        self.dont_create_subfolder.setObjectName(u"dont_create_subfolder")
-        self.dont_create_subfolder.setLayoutDirection(Qt.LeftToRight)
-        self.dont_create_subfolder.setAutoFillBackground(False)
+        self.is_create_subfolder = QCheckBox(self.groupBox_2)
+        self.is_create_subfolder.setObjectName(u"is_create_subfolder")
+        self.is_create_subfolder.setLayoutDirection(Qt.LeftToRight)
+        self.is_create_subfolder.setAutoFillBackground(False)
 
-        self.gridLayout_2.addWidget(self.dont_create_subfolder, 1, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.is_create_subfolder, 1, 1, 1, 1)
 
         self.label_9 = QLabel(self.groupBox_2)
         self.label_9.setObjectName(u"label_9")
@@ -142,6 +142,25 @@ class Ui_PageFor7zConfig(object):
         self.gridLayout_2.setColumnStretch(1, 1)
 
         self.gridLayout_3.addWidget(self.groupBox_2, 1, 0, 1, 1)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.save_settings = QPushButton(PageFor7zConfig)
+        self.save_settings.setObjectName(u"save_settings")
+
+        self.horizontalLayout.addWidget(self.save_settings)
+
+        self.cancel_settings = QPushButton(PageFor7zConfig)
+        self.cancel_settings.setObjectName(u"cancel_settings")
+
+        self.horizontalLayout.addWidget(self.cancel_settings)
+
+
+        self.gridLayout_3.addLayout(self.horizontalLayout, 2, 0, 1, 1)
 
 
         self.retranslateUi(PageFor7zConfig)
@@ -168,9 +187,11 @@ class Ui_PageFor7zConfig(object):
         self.groupBox_2.setTitle(QCoreApplication.translate("PageFor7zConfig", u"\u89e3\u538b", None))
         self.label_5.setText(QCoreApplication.translate("PageFor7zConfig", u"\u89e3\u538b\u5b8c\u6210\u540e\u5220\u9664\u6e90\u6587\u4ef6\uff1a", None))
         self.is_delete_file_after_decompress.setText("")
-        self.label_6.setText(QCoreApplication.translate("PageFor7zConfig", u"\u4e0d\u521b\u5efa\u5b50\u6587\u4ef6\u5939\uff1a", None))
-        self.dont_create_subfolder.setText("")
+        self.label_6.setText(QCoreApplication.translate("PageFor7zConfig", u"\u521b\u5efa\u5b50\u6587\u4ef6\u5939\uff1a", None))
+        self.is_create_subfolder.setText("")
         self.label_9.setText(QCoreApplication.translate("PageFor7zConfig", u"\u9996\u5148\u6d4b\u8bd5\u538b\u7f29\u5305\uff1a", None))
         self.is_test_zip_first.setText("")
+        self.save_settings.setText(QCoreApplication.translate("PageFor7zConfig", u"\u4fdd\u5b58", None))
+        self.cancel_settings.setText(QCoreApplication.translate("PageFor7zConfig", u"\u53d6\u6d88", None))
     # retranslateUi
 

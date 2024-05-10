@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindowUI.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.2
+## Created by: Qt User Interface Compiler version 6.6.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -99,10 +99,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.config_for_7z, 0, 4, 1, 1)
 
-        self.comfig_for_par2 = QToolButton(self.centralwidget)
-        self.comfig_for_par2.setObjectName(u"comfig_for_par2")
+        self.config_for_par2 = QToolButton(self.centralwidget)
+        self.config_for_par2.setObjectName(u"config_for_par2")
 
-        self.gridLayout.addWidget(self.comfig_for_par2, 1, 4, 1, 1)
+        self.gridLayout.addWidget(self.config_for_par2, 1, 4, 1, 1)
 
         self.gridLayout.setColumnStretch(0, 1)
         self.gridLayout.setColumnStretch(1, 2)
@@ -176,7 +176,7 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u538b\u7f29\u5305\u5bc6\u7801\uff1a", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"par2\u6821\u9a8c\u767e\u5206\u6bd4:", None))
         self.config_for_7z.setText(QCoreApplication.translate("MainWindow", u"7z\u914d\u7f6e", None))
-        self.comfig_for_par2.setText(QCoreApplication.translate("MainWindow", u"par2\u914d\u7f6e", None))
+        self.config_for_par2.setText(QCoreApplication.translate("MainWindow", u"par2\u914d\u7f6e", None))
         self.start_and_end.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb", None))
         self.settings.setTitle(QCoreApplication.translate("MainWindow", u"\u9009\u9879", None))
     # retranslateUi

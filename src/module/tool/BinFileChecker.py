@@ -4,13 +4,12 @@ import threading
 
 
 class BinFileChecker(threading.Thread):
-    def __init__(self, file_url: str, type: str, command: str, check: dict, timeout: int):
+    def __init__(self, file_url: str, type: str, command: str, check: dict):
         super().__init__()
         self.file_url = file_url.replace("\\", "/")
         self.command = command
         self.type = type
         self.check = check
-        self.timeout = timeout
 
     def run(self):
         try:

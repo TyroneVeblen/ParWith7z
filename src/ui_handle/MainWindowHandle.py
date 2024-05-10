@@ -1,14 +1,13 @@
-import gc
-
 from PySide6 import QtWidgets
 from PySide6.QtCore import QThread
-from PySide6.QtWidgets import QMainWindow, QFileDialog
+from PySide6.QtWidgets import QMainWindow, QFileDialog, QWidget
 
-from src.config import config
 from src.module import sevenZip
+from src.module.tool.BaseTools import create_file_select_browser_dialog
 from src.module.sevenZip import *
 from src.module.tool.ConfigReader import ConfigReader
 from src.ui.MainWindowUI import Ui_MainWindow
+from src.ui_handle.PageFor7zConfigHandle import PageFor7zConfigHandle
 from src.ui_handle.PathConfigurationOptionsHandle import PathConfigurationOptionsHandle
 
 
@@ -17,7 +16,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
-        self.dialog = None
+        self.dialog = {}
         self.check = 1
         self.filedirs = ""
         self.work = None
@@ -25,16 +24,26 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.select_folders.clicked.connect(self.get_filenames)
         self.start_and_end.clicked.connect(self.start)
         self.action.triggered.connect(self.open_bin_file_path_settings_page)
-        ConfigReader()
+        self.config_for_7z.clicked.connect(self.open_7z_config_page)
+        self.config_for_par2.clicked.connect(self.open_par2_config_page)
+        ConfigReader().get_config()
+
+    def open_par2_config_page(self):
+        pass
+
+    def open_7z_config_page(self):
+        self.dialog["PageFor7zConfig"] = PageFor7zConfigHandle()
+        self.dialog["PageFor7zConfig"].show()
 
     def open_bin_file_path_settings_page(self):
-        self.dialog = PathConfigurationOptionsHandle()
-        self.dialog.show()
+        self.dialog["PageForPathConfigurationOptions"] = PathConfigurationOptionsHandle()
+        self.dialog["PageForPathConfigurationOptions"].show()
 
     def closeEvent(self, event):
-        if self.dialog is not None:
-            self.dialog.close()
-            self.dialog.deleteLater()
+        for widget in self.dialog:
+            if self.dialog[widget] is not None:
+                self.dialog[widget].close()
+                self.dialog[widget].deleteLater()
         try:
             if self.start_and_end.text() == "开始":
                 event.accept()
@@ -55,19 +64,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         获取文件夹
         """
         try:
-            dialog = QtWidgets.QFileDialog(self)
-            dialog.setWindowTitle('请选择路径')
-            dialog.setOption(QtWidgets.QFileDialog.Option.DontUseNativeDialog, True)
-            dialog.setOption(QtWidgets.QFileDialog.Option.ShowDirsOnly)
-            dialog.setFileMode(QFileDialog.FileMode.Directory)
-            for view in dialog.findChildren(QtWidgets.QListView):
-                if isinstance(view.model(), QtWidgets.QFileSystemModel):
-                    view.setSelectionMode(
-                        QtWidgets.QAbstractItemView.SelectionMode.ExtendedSelection)
-            for view in dialog.findChildren(QtWidgets.QTreeView):
-                if isinstance(view.model(), QtWidgets.QFileSystemModel):
-                    view.setSelectionMode(
-                        QtWidgets.QAbstractItemView.SelectionMode.ExtendedSelection)
+            dialog = create_file_select_browser_dialog()
             if dialog.exec() == QtWidgets.QDialog.DialogCode.Accepted:
                 self.filedirs = dialog.selectedFiles()
                 self.textBrowser.clear()
