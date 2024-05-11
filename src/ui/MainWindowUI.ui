@@ -180,12 +180,13 @@
     <property name="title">
      <string>选项</string>
     </property>
-    <addaction name="action"/>
+    <addaction name="config_for_bin_file_path"/>
+    <addaction name="config_for_others"/>
    </widget>
    <addaction name="settings"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action">
+  <action name="config_for_bin_file_path">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -194,6 +195,11 @@
    </property>
    <property name="text">
     <string>路径配置</string>
+   </property>
+  </action>
+  <action name="config_for_others">
+   <property name="text">
+    <string>其他设置</string>
    </property>
   </action>
  </widget>

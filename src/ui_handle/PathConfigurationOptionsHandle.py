@@ -53,6 +53,7 @@ class PathConfigurationOptionsHandle(QWidget, Ui_PathConfigurationOptionsUI, Set
                 QMessageBox.warning(widget, "错误", "你选择的{}可执行文件不是一个可执行文件".format(result["form"]))
             if result["level"] == "success":
                 messagebox.information(widget,"成功", "所有文件验证成功")
+                ConfigReader().set_config()
         widget.deleteLater()
         messagebox.deleteLater()
         self.close()

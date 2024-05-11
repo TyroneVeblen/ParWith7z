@@ -27,10 +27,12 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(506, 382)
-        self.action = QAction(MainWindow)
-        self.action.setObjectName(u"action")
-        self.action.setCheckable(False)
-        self.action.setChecked(False)
+        self.config_for_bin_file_path = QAction(MainWindow)
+        self.config_for_bin_file_path.setObjectName(u"config_for_bin_file_path")
+        self.config_for_bin_file_path.setCheckable(False)
+        self.config_for_bin_file_path.setChecked(False)
+        self.config_for_others = QAction(MainWindow)
+        self.config_for_others.setObjectName(u"config_for_others")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -158,7 +160,8 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.menubar.addAction(self.settings.menuAction())
-        self.settings.addAction(self.action)
+        self.settings.addAction(self.config_for_bin_file_path)
+        self.settings.addAction(self.config_for_others)
 
         self.retranslateUi(MainWindow)
 
@@ -167,7 +170,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.action.setText(QCoreApplication.translate("MainWindow", u"\u8def\u5f84\u914d\u7f6e", None))
+        self.config_for_bin_file_path.setText(QCoreApplication.translate("MainWindow", u"\u8def\u5f84\u914d\u7f6e", None))
+        self.config_for_others.setText(QCoreApplication.translate("MainWindow", u"\u5176\u4ed6\u8bbe\u7f6e", None))
         self.select_files.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6", None))
         self.select_folders.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u6587\u4ef6\u5939", None))
         self.unzip_or_zip.setItemText(0, QCoreApplication.translate("MainWindow", u"\u89e3\u538b", None))

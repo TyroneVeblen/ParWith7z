@@ -13,8 +13,7 @@ class PageFor7zConfigHandle(QWidget, Ui_PageFor7zConfig, SettingsHandleImpl,
                             metaclass=PathConfigurationOptionsHandleMetaClass):
 
     def __init__(self):
-        QWidget.__init__(self)
-        SettingsHandleImpl.__init__(self)
+        super().__init__()
         self.setupUi(self)
         self.settings_load()
         self.save_settings.clicked.connect(self.settings_save)
@@ -48,8 +47,6 @@ class PageFor7zConfigHandle(QWidget, Ui_PageFor7zConfig, SettingsHandleImpl,
         config["CreateSubfolder"] = self.is_create_subfolder.isChecked()
         config["TestZipFirst"] = self.is_test_zip_first.isChecked()
         ConfigReader().set_config()
-        for key, value in config.items():
-            print(key, value)
         self.close()
 
     def closeEvent(self, event):

@@ -8,6 +8,7 @@ from src.module.sevenZip import *
 from src.module.tool.ConfigReader import ConfigReader
 from src.ui.MainWindowUI import Ui_MainWindow
 from src.ui_handle.PageFor7zConfigHandle import PageFor7zConfigHandle
+from src.ui_handle.PageForPar2ConfigHandle import PageForPar2ConfigHandle
 from src.ui_handle.PathConfigurationOptionsHandle import PathConfigurationOptionsHandle
 
 
@@ -23,13 +24,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.config = None
         self.select_folders.clicked.connect(self.get_filenames)
         self.start_and_end.clicked.connect(self.start)
-        self.action.triggered.connect(self.open_bin_file_path_settings_page)
+        self.config_for_bin_file_path.triggered.connect(self.open_bin_file_path_settings_page)
         self.config_for_7z.clicked.connect(self.open_7z_config_page)
         self.config_for_par2.clicked.connect(self.open_par2_config_page)
         ConfigReader().get_config()
 
     def open_par2_config_page(self):
-        pass
+        self.dialog["PageForPar2Config"] = PageForPar2ConfigHandle()
+        self.dialog["PageForPar2Config"].show()
 
     def open_7z_config_page(self):
         self.dialog["PageFor7zConfig"] = PageFor7zConfigHandle()
