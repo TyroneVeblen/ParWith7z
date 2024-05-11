@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
+
 class SettingsHandleImpl(metaclass=ABCMeta):
 
     def __init__(self):
@@ -18,5 +19,5 @@ class SettingsHandleImpl(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def closeEvent(self,event):
+    def closeEvent(self, event):
         pass

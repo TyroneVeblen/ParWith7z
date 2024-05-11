@@ -178,6 +178,14 @@ class Ui_PageFor7zSettings(object):
         self.compress_level.setItemText(1, QCoreApplication.translate("PageFor7zSettings", u"5 \u6807\u51c6\u538b\u7f29", None))
         self.compress_level.setItemText(2, QCoreApplication.translate("PageFor7zSettings", u"9 \u6781\u9650\u538b\u7f29", None))
 
+#if QT_CONFIG(tooltip)
+        self.label_3.setToolTip(QCoreApplication.translate("PageFor7zSettings", u"\u5efa\u8bae\u4e0d\u8981\u8d85\u8fc74GB(4096MB)\n"
+"\u9ed8\u8ba4\u503c\u4e3a0(\u4e5f\u5c31\u662f\u4e0d\u5206\u5377)\n"
+"\u5efa\u8bae\u5355\u6587\u4ef6/\u5355\u6587\u4ef6\u5939\u8d85\u8fc74GB\u65f6\u542f\u7528", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        self.label_3.setStatusTip("")
+#endif // QT_CONFIG(statustip)
         self.label_3.setText(QCoreApplication.translate("PageFor7zSettings", u"\u5206\u5377\u5927\u5c0f(MB)\uff1a", None))
         self.label_4.setText(QCoreApplication.translate("PageFor7zSettings", u"\u52a0\u5bc6\u6587\u4ef6\u540d\uff1a", None))
         self.is_encrypted_file_name.setText("")

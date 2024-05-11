@@ -68,6 +68,14 @@
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
+        <property name="toolTip">
+         <string>建议不要超过4GB(4096MB)
+默认值为0(也就是不分卷)
+建议单文件/单文件夹超过4GB时启用</string>
+        </property>
+        <property name="statusTip">
+         <string/>
+        </property>
         <property name="text">
          <string>分卷大小(MB)：</string>
         </property>
