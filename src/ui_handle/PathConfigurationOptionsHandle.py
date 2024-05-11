@@ -8,13 +8,13 @@ from src.module.tool.BinFileChecker import BinFileChecker
 from src.module.tool.ConfigReader import ConfigReader
 from src.module.tool.PathSelector import PathSelector
 from src.module.tool.StateChecker import StateChecker
-from src.ui.PathConfigurationOptionsUI import Ui_PathConfigurationOptionsUI
+from src.ui.PageForPathConfigurationSettings import Ui_PageForPathConfigurationSettings
 from src.ui_handle.MetaClassHandle.PathConfigurationOptionsHandleMetaClass import \
     PathConfigurationOptionsHandleMetaClass
 from src.ui_handle.impl.SettingsHandleImpl import SettingsHandleImpl
 
 
-class PathConfigurationOptionsHandle(QWidget, Ui_PathConfigurationOptionsUI, SettingsHandleImpl,
+class PathConfigurationOptionsHandle(QWidget, Ui_PageForPathConfigurationSettings, SettingsHandleImpl,
                                      metaclass=PathConfigurationOptionsHandleMetaClass):
     def __init__(self):
         QWidget.__init__(self)

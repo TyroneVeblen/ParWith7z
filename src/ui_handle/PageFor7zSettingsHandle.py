@@ -3,14 +3,14 @@ from PySide6.QtWidgets import QWidget
 from src.config.config import config
 from src.module.tool.BaseTools import number_check,bool_check
 from src.module.tool.ConfigReader import ConfigReader
-from src.ui.PageFor7zConfig import Ui_PageFor7zConfig
+from src.ui.PageFor7zSettings import Ui_PageFor7zSettings
 from src.ui_handle.MetaClassHandle.PathConfigurationOptionsHandleMetaClass import \
     PathConfigurationOptionsHandleMetaClass
 from src.ui_handle.impl.SettingsHandleImpl import SettingsHandleImpl
 
 
-class PageFor7zConfigHandle(QWidget, Ui_PageFor7zConfig, SettingsHandleImpl,
-                            metaclass=PathConfigurationOptionsHandleMetaClass):
+class PageFor7zSettingsHandle(QWidget, Ui_PageFor7zSettings, SettingsHandleImpl,
+                              metaclass=PathConfigurationOptionsHandleMetaClass):
 
     def __init__(self):
         super().__init__()

@@ -1,13 +1,13 @@
 from PySide6.QtWidgets import QWidget
 from src.module.tool.BaseTools import number_check
 from src.module.tool.ConfigReader import ConfigReader
-from src.ui.PageForPar2Config import Ui_PageForPar2Config
+from src.ui.PageForPar2Settings import Ui_PageForPar2Settings
 from src.ui_handle.MetaClassHandle.PathConfigurationOptionsHandleMetaClass import PathConfigurationOptionsHandleMetaClass
 from src.ui_handle.impl.SettingsHandleImpl import SettingsHandleImpl
 from src.config.config import config
 
 
-class PageForPar2ConfigHandle(QWidget, Ui_PageForPar2Config, SettingsHandleImpl,
+class PageForPar2ConfigHandle(QWidget, Ui_PageForPar2Settings, SettingsHandleImpl,
                               metaclass=PathConfigurationOptionsHandleMetaClass):
     def __init__(self):
         QWidget.__init__(self)

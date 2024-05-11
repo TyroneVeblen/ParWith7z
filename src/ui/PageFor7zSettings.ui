@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageFor7zConfig</class>
- <widget class="QWidget" name="PageFor7zConfig">
+ <class>PageFor7zSettings</class>
+ <widget class="QWidget" name="PageFor7zSettings">
   <property name="geometry">
    <rect>
     <x>0</x>

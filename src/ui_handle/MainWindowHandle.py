@@ -7,8 +7,8 @@ from src.module.tool.BaseTools import create_file_select_browser_dialog
 from src.module.sevenZip import *
 from src.module.tool.ConfigReader import ConfigReader
 from src.ui.MainWindowUI import Ui_MainWindow
-from src.ui_handle.PageFor7zConfigHandle import PageFor7zConfigHandle
-from src.ui_handle.PageForPar2ConfigHandle import PageForPar2ConfigHandle
+from src.ui_handle.PageFor7zSettingsHandle import PageFor7zSettingsHandle
+from src.ui_handle.PageForPar2SettingsHandle import PageForPar2ConfigHandle
 from src.ui_handle.PathConfigurationOptionsHandle import PathConfigurationOptionsHandle
 
 
@@ -34,7 +34,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.dialog["PageForPar2Config"].show()
 
     def open_7z_config_page(self):
-        self.dialog["PageFor7zConfig"] = PageFor7zConfigHandle()
+        self.dialog["PageFor7zConfig"] = PageFor7zSettingsHandle()
         self.dialog["PageFor7zConfig"].show()
 
     def open_bin_file_path_settings_page(self):

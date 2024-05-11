@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageForPar2Config</class>
- <widget class="QWidget" name="PageForPar2Config">
+ <class>PageForPar2Settings</class>
+ <widget class="QWidget" name="PageForPar2Settings">
   <property name="geometry">
    <rect>
     <x>0</x>
