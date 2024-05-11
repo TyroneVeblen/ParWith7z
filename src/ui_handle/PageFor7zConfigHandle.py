@@ -24,8 +24,6 @@ class PageFor7zConfigHandle(QWidget, Ui_PageFor7zConfig, SettingsHandleImpl,
         self.close()
 
     def settings_load(self):
-        for key,value in config.items():
-            print(key, value)
         try:
             self.is_delete_file_after_compress.setChecked(bool_check(config["DeleteFileAfterCompress"]))
             self.compress_level.setCurrentIndex(["-mx=0", "-mx=5", "-mx=9"].index(config["CompressLevel"]))
@@ -50,6 +48,9 @@ class PageFor7zConfigHandle(QWidget, Ui_PageFor7zConfig, SettingsHandleImpl,
         config["CreateSubfolder"] = self.is_create_subfolder.isChecked()
         config["TestZipFirst"] = self.is_test_zip_first.isChecked()
         ConfigReader().set_config()
+        for key, value in config.items():
+            print(key, value)
+        self.close()
 
     def closeEvent(self, event):
         event.accept()

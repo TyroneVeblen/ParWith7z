@@ -1,4 +1,3 @@
-
 from PySide6 import QtWidgets
 from PySide6.QtWidgets import QLineEdit, QMessageBox, QWidget, QFileDialog
 
@@ -17,6 +16,7 @@ def number_check(qt_compose: QLineEdit):
 
 
 def bool_check(config_text: str):
+    config_text = str(config_text)
     if config_text == "True":
         return True
     else:
