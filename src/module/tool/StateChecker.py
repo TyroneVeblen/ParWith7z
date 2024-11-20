@@ -10,7 +10,7 @@ class StateChecker(QThread):
         super().__init__()
         self.check = check
         self.results = []
-        self.timeout = {"timeout": False}
+        self.timeout = {"timeout": False, "useless": False}
         TimeoutSetter(self.timeout, 3).start()
 
     def check_pass(self):
@@ -18,10 +18,12 @@ class StateChecker(QThread):
         for key, value in self.check.items():
             if value == "not_test_yet":
                 self.results.append({"level": "timeout", "form": str(key)})
-            elif value == "pass":
-                pass_count += 1
             else:
-                self.results.append({"level": str(value), "form": str(key)})
+                self.timeout["useless"] = True
+                if value == "pass":
+                    pass_count += 1
+                else:
+                    self.results.append({"level": str(value), "form": str(key)})
         if pass_count == len(self.check):
             self.results.append({"level": "success", "from": ""})
         self.trigger.emit(self.results)

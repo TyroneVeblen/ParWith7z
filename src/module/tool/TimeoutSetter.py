@@ -9,5 +9,11 @@ class TimeoutSetter(threading.Thread):
         self.time = t
 
     def run(self):
-        time.sleep(self.time)
-        self.state["timeout"] = True
+        flag = 0
+        for i in range(self.time*10):
+            time.sleep(0.1)
+            if self.state["useless"]:
+                flag = 1
+                break
+        if flag:
+            self.state["timeout"] = True

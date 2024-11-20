@@ -55,15 +55,15 @@ class Ui_PageFor7zSettings(object):
 
         self.gridLayout.addWidget(self.compress_level, 1, 1, 1, 1)
 
-        self.label_3 = QLabel(self.groupBox)
-        self.label_3.setObjectName(u"label_3")
-
-        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
-
         self.volume_size = QLineEdit(self.groupBox)
         self.volume_size.setObjectName(u"volume_size")
 
         self.gridLayout.addWidget(self.volume_size, 2, 1, 1, 1)
+
+        self.label_3 = QLabel(self.groupBox)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
 
         self.label_4 = QLabel(self.groupBox)
         self.label_4.setObjectName(u"label_4")
@@ -75,11 +75,6 @@ class Ui_PageFor7zSettings(object):
 
         self.gridLayout.addWidget(self.is_encrypted_file_name, 3, 1, 1, 1)
 
-        self.label_7 = QLabel(self.groupBox)
-        self.label_7.setObjectName(u"label_7")
-
-        self.gridLayout.addWidget(self.label_7, 4, 0, 1, 1)
-
         self.is_folder_only = QCheckBox(self.groupBox)
         self.is_folder_only.setObjectName(u"is_folder_only")
 
@@ -90,10 +85,27 @@ class Ui_PageFor7zSettings(object):
 
         self.gridLayout.addWidget(self.label_8, 5, 0, 1, 1)
 
+        self.label_7 = QLabel(self.groupBox)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout.addWidget(self.label_7, 4, 0, 1, 1)
+
         self.path_recursion_depth = QLineEdit(self.groupBox)
         self.path_recursion_depth.setObjectName(u"path_recursion_depth")
 
         self.gridLayout.addWidget(self.path_recursion_depth, 5, 1, 1, 1)
+
+        self.label_10 = QLabel(self.groupBox)
+        self.label_10.setObjectName(u"label_10")
+
+        self.gridLayout.addWidget(self.label_10, 6, 0, 1, 1)
+
+        self.path_mode = QComboBox(self.groupBox)
+        self.path_mode.addItem("")
+        self.path_mode.addItem("")
+        self.path_mode.setObjectName(u"path_mode")
+
+        self.gridLayout.addWidget(self.path_mode, 6, 1, 1, 1)
 
         self.gridLayout.setColumnStretch(0, 3)
         self.gridLayout.setColumnStretch(1, 1)
@@ -189,9 +201,13 @@ class Ui_PageFor7zSettings(object):
         self.label_3.setText(QCoreApplication.translate("PageFor7zSettings", u"\u5206\u5377\u5927\u5c0f(MB)\uff1a", None))
         self.label_4.setText(QCoreApplication.translate("PageFor7zSettings", u"\u52a0\u5bc6\u6587\u4ef6\u540d\uff1a", None))
         self.is_encrypted_file_name.setText("")
-        self.label_7.setText(QCoreApplication.translate("PageFor7zSettings", u"\u4ec5\u6587\u4ef6\u5939\u6a21\u5f0f\uff1a", None))
         self.is_folder_only.setText("")
         self.label_8.setText(QCoreApplication.translate("PageFor7zSettings", u"\u8def\u5f84\u9012\u5f52\u6df1\u5ea6\uff1a", None))
+        self.label_7.setText(QCoreApplication.translate("PageFor7zSettings", u"\u4ec5\u6587\u4ef6\u5939\u6a21\u5f0f\uff1a", None))
+        self.label_10.setText(QCoreApplication.translate("PageFor7zSettings", u"\u8def\u5f84\u6a21\u5f0f\uff1a", None))
+        self.path_mode.setItemText(0, QCoreApplication.translate("PageFor7zSettings", u"\u7ecf\u5178\u7ed3\u6784", None))
+        self.path_mode.setItemText(1, QCoreApplication.translate("PageFor7zSettings", u"\u539f\u59cb\u7ed3\u6784\u8def\u5f84", None))
+
         self.groupBox_2.setTitle(QCoreApplication.translate("PageFor7zSettings", u"\u89e3\u538b", None))
         self.label_5.setText(QCoreApplication.translate("PageFor7zSettings", u"\u89e3\u538b\u5b8c\u6210\u540e\u5220\u9664\u6e90\u6587\u4ef6\uff1a", None))
         self.is_delete_file_after_decompress.setText("")

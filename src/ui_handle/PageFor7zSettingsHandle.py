@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QWidget
 
 from src.config.config import config
-from src.module.tool.BaseTools import number_check,bool_check
+from src.module.tool.BaseTools import number_check, bool_check
 from src.module.tool.ConfigReader import ConfigReader
 from src.ui.PageFor7zSettings import Ui_PageFor7zSettings
 from src.ui_handle.MetaClassHandle.PathConfigurationOptionsHandleMetaClass import \
@@ -33,6 +33,7 @@ class PageFor7zSettingsHandle(QWidget, Ui_PageFor7zSettings, SettingsHandleImpl,
             self.is_delete_file_after_decompress.setChecked(bool_check(config["DeleteFileAfterDecompress"]))
             self.is_create_subfolder.setChecked(bool_check(config["CreateSubfolder"]))
             self.is_test_zip_first.setChecked(bool_check(config["TestZipFirst"]))
+            self.path_mode.setCurrentIndex(["classic", "full relative path"].index(config["PathMode"]))
         except Exception as e:
             print(e)
 
@@ -46,6 +47,7 @@ class PageFor7zSettingsHandle(QWidget, Ui_PageFor7zSettings, SettingsHandleImpl,
         config["DeleteFileAfterDecompress"] = self.is_delete_file_after_decompress.isChecked()
         config["CreateSubfolder"] = self.is_create_subfolder.isChecked()
         config["TestZipFirst"] = self.is_test_zip_first.isChecked()
+        config["PathMode"] = ["classic", "full relative path"][self.path_mode.currentIndex()]
         ConfigReader().set_config()
         self.close()
 

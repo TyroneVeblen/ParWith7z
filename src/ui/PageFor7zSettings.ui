@@ -66,6 +66,9 @@
         </item>
        </widget>
       </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="volume_size"/>
+      </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="toolTip">
@@ -81,9 +84,6 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="volume_size"/>
-      </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
@@ -98,20 +98,6 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>仅文件夹模式：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QCheckBox" name="is_folder_only">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
@@ -119,8 +105,55 @@
         </property>
        </widget>
       </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>文件形式:</string>
+        </property>
+       </widget>
+      </item>
       <item row="5" column="1">
        <widget class="QLineEdit" name="path_recursion_depth"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>路径模式：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QComboBox" name="path_mode">
+        <item>
+         <property name="text">
+          <string>经典结构</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>原始结构路径</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="selection_type_fiter">
+        <item>
+         <property name="text">
+          <string>仅文件</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>仅文件夹</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>全部</string>
+         </property>
+        </item>
+       </widget>
       </item>
      </layout>
     </widget>
